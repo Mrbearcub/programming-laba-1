@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bv114qnw8el68"]
+
+[ext_resource type="Script" uid="uid://2v64qiqli2n" path="res://Scripts/player.gd" id="1_4flbx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hf7dp"]
+size = Vector2(51, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqxyq"]
+
+[sub_resource type="Gradient" id="Gradient_4flbx"]
+colors = PackedColorArray(0, 0.5764706, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hf7dp"]
+gradient = SubResource("Gradient_4flbx")
+
+[node name="Player" type="CharacterBody2D" unique_id=963643568 groups=["player"]]
+script = ExtResource("1_4flbx")
+
+[node name="Timer" type="Timer" parent="." unique_id=866247539]
+one_shot = true
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=1087571732]
+modulate = Color(0, 1, 0, 1)
+anchors_preset = -1
+offset_left = -53.0
+offset_top = -45.0
+offset_right = 56.0
+offset_bottom = -36.0
+value = 100.0
+show_percentage = false
+
+[node name="Area2D" type="Area2D" parent="." unique_id=252700706 groups=["player"]]
+collision_layer = 2
+collision_mask = 21
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=249030872]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_hf7dp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=727041377]
+shape = SubResource("RectangleShape2D_fqxyq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=851911284]
+texture = SubResource("GradientTexture2D_hf7dp")

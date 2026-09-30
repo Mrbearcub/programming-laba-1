@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bk643irhfrn8g"]
+
+[ext_resource type="Script" uid="uid://cpul8efum5c01" path="res://Scripts/enemy_bullet.gd" id="1_1xapl"]
+
+[sub_resource type="Gradient" id="Gradient_sgs6v"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.047058824, 0.47058824, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hf7dp"]
+gradient = SubResource("Gradient_sgs6v")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqxyq"]
+size = Vector2(55.741932, 55.46667)
+
+[node name="EnemyBullet" type="Sprite2D" unique_id=691513937]
+scale = Vector2(0.484375, 0.46875)
+texture = SubResource("GradientTexture2D_hf7dp")
+script = ExtResource("1_1xapl")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2088165633]
+collision_layer = 16
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1127156259]
+position = Vector2(0, 5.0862633e-07)
+shape = SubResource("RectangleShape2D_fqxyq")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

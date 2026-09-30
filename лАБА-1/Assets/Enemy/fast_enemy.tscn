@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://0dwsfocc05rt"]
+
+[ext_resource type="Script" uid="uid://cjpmb4tigp1xt" path="res://Scripts/fast_enemy.gd" id="1_qckmv"]
+
+[sub_resource type="Gradient" id="Gradient_qckmv"]
+offsets = PackedFloat32Array(0, 0.664)
+colors = PackedColorArray(0.33666378, 0.9999997, 0.9981727, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kl2qe"]
+gradient = SubResource("Gradient_qckmv")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hf7dp"]
+size = Vector2(59, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqxyq"]
+
+[node name="FastEnemy" type="CharacterBody2D" unique_id=1607678764 groups=["enemy"]]
+script = ExtResource("1_qckmv")
+speed = 400.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=686294274]
+position = Vector2(0.49999547, 0.9999976)
+scale = Vector2(0.23046874, 60)
+texture = SubResource("GradientTexture1D_kl2qe")
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=1428838300]
+collision_layer = 4
+collision_mask = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=771430989]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_hf7dp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1828646407]
+shape = SubResource("RectangleShape2D_fqxyq")
+
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]

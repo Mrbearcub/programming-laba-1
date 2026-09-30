@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bhcnl3u11aac2"]
+
+[ext_resource type="Script" uid="uid://cln26guej307r" path="res://Scripts/barrel.gd" id="1_n8un1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hf7dp"]
+size = Vector2(35, 77)
+
+[sub_resource type="Gradient" id="Gradient_n8un1"]
+offsets = PackedFloat32Array(0.012, 1)
+colors = PackedColorArray(0.50181633, 0.10225821, 0, 1, 1, 0.2784314, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rt8ro"]
+gradient = SubResource("Gradient_n8un1")
+fill_from = Vector2(0.41618496, 1)
+fill_to = Vector2(0.77745664, 0)
+
+[node name="Barrel" type="StaticBody2D" unique_id=207582746 groups=["destructible"]]
+script = ExtResource("1_n8un1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1386469668 groups=["destructible"]]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_hf7dp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=474190954]
+position = Vector2(0, 0.5)
+scale = Vector2(0.34375, 1.015625)
+texture = SubResource("GradientTexture2D_rt8ro")

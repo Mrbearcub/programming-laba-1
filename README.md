@@ -4,11 +4,11 @@ Top-down shooter прототип
 # Структура папок
 
 - Assets
-	-Bullets
-	-Enemy
-	-Objects
--Scripts (все скрипты)
--grass.tscn (основная сцена)
+	- Bullets
+	- Enemy
+	- Objects
+- Scripts (все скрипты)
+- grass.tscn (основная сцена)
 
 
 # Содержание сцен
